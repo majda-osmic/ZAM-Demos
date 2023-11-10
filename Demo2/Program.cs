@@ -2,26 +2,36 @@
 
 
 using Demo2;
-
+using GeometricObjects;
+using Interfaces;
+using System.Numerics;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
 
-        Demo2.V3.Car car = new Demo2.V3.Sedan("Mercedes-Benz", "C-Class", 400);
-        car.DisplayInfo();
+        //Demo2.V3.Car car = new Demo2.V3.Sedan("Mercedes-Benz", "C-Class", 400);
+        //car.DisplayInfo();
 
+        IDrawable[] drawables = new IDrawable[]
+        {
+            new Demo2.V3.Sedan("Mercedes-Benz", "C-Class", 400),
+            new GraphicCircle(10),
+            new Demo2.V3.SUV("BMW", "5", true)
+        };
 
-
-
-        //   Demo2.V2.Car car2 = new Demo2.V2.Car("Model", "Brand");
-
-
+        DrawAllObjects(drawables);
     }
 
 
-
+    public static void DrawAllObjects(IDrawable[] allDrawableObjects)
+    {
+        foreach (IDrawable obj in allDrawableObjects)
+        {
+            obj.Draw();
+        }
+    }
   
 
 }

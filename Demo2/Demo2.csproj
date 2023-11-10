@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GeometricObjects\GeometricObjects.csproj" />
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

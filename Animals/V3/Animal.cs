@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,20 @@ using System.Threading.Tasks;
 
 namespace Animals.V3
 {
-    internal class Animal
+    public class Animal : IDrawable
     {
+        public void Draw()
+        {
+            Console.WriteLine("I am drawing an email");
+        }
+
         public virtual void Reproduce()
         {
             Console.WriteLine("We have animal babies");
         }
     }
 
-    internal class Dog : Animal
+    public class Dog : Animal
     {
         public override void Reproduce() 
         {
@@ -28,7 +34,7 @@ namespace Animals.V3
         }
     }
 
-    internal class Bird : Animal
+    public class Bird : Animal
     {
         public override void Reproduce() 
         {

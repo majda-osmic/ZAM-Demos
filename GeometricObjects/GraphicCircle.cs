@@ -1,6 +1,10 @@
-﻿namespace GeometricObjects
+﻿
+
+using Interfaces;
+
+namespace GeometricObjects
 {
-    public class GraphicCircle : Circle
+    public class GraphicCircle : Circle, IDrawable
     {
         public GraphicCircle(int radius) : this(0, 0, 0)
         {
