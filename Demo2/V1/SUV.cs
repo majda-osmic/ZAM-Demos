@@ -3,7 +3,7 @@
     public class SUV : Car
     {
         public bool AllWheelDrive { get; set; }
-        public SUV(string model, string brand, bool allWheelDrive) : base(model, brand)
+        public SUV(string model, string brand, bool allWheelDrive) : base(model, brand, "")
         {
             AllWheelDrive = allWheelDrive;
         }

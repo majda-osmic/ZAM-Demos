@@ -3,7 +3,7 @@
     public class Sedan : Car
     {
         public int TrunkCapacity { get; protected set; }
-        public Sedan(string model, string brand, int trunkCapacity) : base(model, brand)
+        public Sedan(string model, string brand, int trunkCapacity) : base(model, brand, "")
         {
             TrunkCapacity = trunkCapacity;
         }
