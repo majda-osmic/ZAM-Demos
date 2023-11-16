@@ -8,33 +8,77 @@ using System.Numerics;
 
 internal class Program
 {
+
+    public class EmployeeNotFoundException : Exception
+    {
+        public EmployeeNotFoundException() { }
+        public EmployeeNotFoundException(string message) : base(message) { }
+    }
+
     private static void Main(string[] args)
     {
-
-        //Demo2.V3.Car car = new Demo2.V3.Sedan("Mercedes-Benz", "C-Class", 400);
-        //car.DisplayInfo();
-
-        IDrawable[] drawables = new IDrawable[]
+        try
         {
-            new Demo2.V3.Sedan("Mercedes-Benz", "C-Class", 400),
-            new GraphicCircle(10),
-            new Demo2.V3.SUV("BMW", "5", true)
-        };
-
-        DrawAllObjects(drawables);
-    }
-
-
-    public static void DrawAllObjects(IDrawable[] allDrawableObjects)
-    {
-        foreach (IDrawable obj in allDrawableObjects)
-        {
-            obj.Draw();
+            ReadFromFile();
+          //  throw new EmployeeNotFoundException("Employee does not exist");
         }
-    }
-  
+       
+        catch (EmployeeNotFoundException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+      
+        
 
-}
+
+
+
+        ////Demo2.V3.Car car = new Demo2.V3.Sedan("Mercedes-Benz", "C-Class", 400);
+        ////car.DisplayInfo();
+
+        //IDrawable[] drawables = new IDrawable[]
+        //{
+        //    new Demo2.V3.Sedan("Mercedes-Benz", "C-Class", 400),
+        //    new GraphicCircle(10),
+        //    new Demo2.V3.SUV("BMW", "5", true)
+        //};
+
+        //DrawAllObjects(drawables);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exception cref="FileNotFoundException"></exception>
+    public static void ReadFromFile()
+    {
+        Console.WriteLine("Type a file path: ");
+        string path = Console.ReadLine();
+
+        if(File.Exists(path))
+        {
+            using StreamReader streamReader = new StreamReader(path);
+            Console.WriteLine(streamReader.ReadToEnd());
+        }
+        else
+        {
+            throw new FileNotFoundException($"File {path} does not exist");
+        }
+
+
+
+    }
+
+        public static void DrawAllObjects(IDrawable[] allDrawableObjects)
+        {
+            foreach (IDrawable obj in allDrawableObjects)
+            {
+                obj.Draw();
+            }
+        }
+
+
+    }
 
 
 
